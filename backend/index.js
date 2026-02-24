@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
   res.json({ message: '🗣️ HablaYa! API funcionando correctamente' });
 });
 
+app.use('/api/auth', require('./routes/authRoutes'));
+
 // Manejo de rutas no encontradas
 app.use((req, res) => {
   res.status(404).json({ error: 'Ruta no encontrada' });
