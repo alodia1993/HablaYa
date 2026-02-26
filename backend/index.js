@@ -17,6 +17,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/lecciones', require('./routes/leccionRoutes'));
+app.use('/api/ejercicios', require('./routes/ejercicioRoutes'));
 
 // Manejo de rutas no encontradas
 app.use((req, res) => {
