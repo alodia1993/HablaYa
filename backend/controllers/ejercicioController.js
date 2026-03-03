@@ -87,7 +87,9 @@ const corregirEjercicio = async (req, res) => {
         } else if (ejercicio.tipo === 'ordenar_frases') {
             // La respuesta es un array que debe coincidir con contenido.orden_correcto
             correcto = JSON.stringify(respuesta) === JSON.stringify(contenido.orden_correcto);
-        }
+        }  else if (ejercicio.tipo === 'reading') {
+    correcto = respuesta === contenido.respuesta_correcta;
+    }
 
         res.json({
             correcto,
