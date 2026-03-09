@@ -21,6 +21,7 @@ app.use('/api/lecciones', require('./routes/leccionRoutes'));
 app.use('/api/ejercicios', require('./routes/ejercicioRoutes'));
 app.use('/api/redacciones', require('./routes/redaccionRoutes'));
 app.use('/api/progreso', require('./routes/progresoRoutes'));
+app.use('/api', require('./routes/tutoriaRoutes'));
 
 // Manejo de rutas no encontradas
 app.use((req, res) => {
