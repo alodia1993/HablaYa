@@ -8,7 +8,8 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Admin from './pages/Admin';
 import Lecciones from './pages/Lecciones';           
-import LeccionDetalle from './pages/LeccionDetalle'; 
+import LeccionDetalle from './pages/LeccionDetalle';
+import Writing from './pages/Writing';
 
 function App() {
     return (
@@ -38,7 +39,13 @@ function App() {
                         <PrivateRoute>
                             <LeccionDetalle />
                         </PrivateRoute>
-                    } />                              
+                    } />
+
+                    <Route path="/writing" element={
+                        <PrivateRoute>
+                            <Writing />
+                        </PrivateRoute>
+                    } />                            
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

@@ -22,7 +22,7 @@ const Navbar = () => {
                     <>
                         <Link to="/dashboard" style={styles.link}>Inicio</Link>
                         <Link to="/lecciones" style={styles.link}>Lecciones</Link>
-                        <Link to="/redacciones" style={styles.link}>Redacciones</Link>
+                        <Link to="/writing" style={styles.link}>Redacciones</Link>
                         <Link to="/tutorias" style={styles.link}>Tutorías</Link>
                     </>
                 )}
