@@ -24,6 +24,7 @@ const Navbar = () => {
                         <Link to="/lecciones" style={styles.link}>Lecciones</Link>
                         <Link to="/writing" style={styles.link}>Redacciones</Link>
                         <Link to="/tutorias" style={styles.link}>Tutorías</Link>
+                        <Link to="/progreso" style={styles.link}>Progreso</Link>
                     </>
                 )}
                 {usuario.rol === 'admin' && (

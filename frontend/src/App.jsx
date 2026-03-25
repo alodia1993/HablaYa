@@ -10,6 +10,7 @@ import Admin from './pages/Admin';
 import Lecciones from './pages/Lecciones';           
 import LeccionDetalle from './pages/LeccionDetalle';
 import Writing from './pages/Writing';
+import Progreso from './pages/Progreso';
 
 function App() {
     return (
@@ -45,7 +46,13 @@ function App() {
                         <PrivateRoute>
                             <Writing />
                         </PrivateRoute>
-                    } />                            
+                    } />  
+
+                    <Route path="/progreso" element={
+                        <PrivateRoute>
+                        <Progreso />
+                    </PrivateRoute>
+                    } />                          
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
