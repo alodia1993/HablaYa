@@ -11,6 +11,7 @@ import Lecciones from './pages/Lecciones';
 import LeccionDetalle from './pages/LeccionDetalle';
 import Writing from './pages/Writing';
 import Progreso from './pages/Progreso';
+import Tutorias from './pages/Tutorias';
 
 function App() {
     return (
@@ -52,7 +53,13 @@ function App() {
                         <PrivateRoute>
                         <Progreso />
                     </PrivateRoute>
-                    } />                          
+                    } />   
+
+                    <Route path="/tutorias" element={
+                        <PrivateRoute>
+                        <Tutorias />
+                    </PrivateRoute>
+                    } />                       
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
