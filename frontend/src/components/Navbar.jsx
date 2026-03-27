@@ -30,9 +30,7 @@ const Navbar = () => {
                 {usuario.rol === 'admin' && (
                     <>
                         <Link to="/admin" style={styles.link}>Panel Admin</Link>
-                        <Link to="/admin/lecciones" style={styles.link}>Lecciones</Link>
-                        <Link to="/admin/redacciones" style={styles.link}>Redacciones</Link>
-                        <Link to="/admin/tutorias" style={styles.link}>Tutorías</Link>
+                        
                     </>
                 )}
                 <span style={styles.nombre}>{usuario.nombre}</span>
