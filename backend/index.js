@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({
     origin: [
         'http://localhost:5173',
-        'https://hablaya.vercel.app',
+        'https://habla-ya-gamma.vercel.app',
         /\.vercel\.app$/
     ],
     credentials: true
