@@ -1,16 +1,48 @@
-# React + Vite
+# HablaYa! — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfaz de usuario de la plataforma HablaYa!, desarrollada con **React + Vite**.
 
-Currently, two official plugins are available:
+Para la documentación completa del proyecto consulta el [README principal](../README.md).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- React Router DOM
+- Axios
+- Recharts
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+Crea el archivo `.env` en esta carpeta:
+
+```env
+VITE_API_URL=http://localhost:3000/api
+```
+
+```bash
+npm run dev
+```
+
+La aplicación arranca en `http://localhost:5173`.
+
+## Páginas principales
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Landing page |
+| `/login` | Inicio de sesión |
+| `/register` | Registro de nuevo alumno |
+| `/dashboard` | Panel del alumno |
+| `/lecciones` | Catálogo de lecciones |
+| `/lecciones/:id` | Detalle de lección con ejercicios |
+| `/writing` | Envío y seguimiento de redacciones |
+| `/progreso` | Gráficas de progreso |
+| `/tutorias` | Reserva de tutorías |
+| `/admin` | Panel de administración (solo admin) |
