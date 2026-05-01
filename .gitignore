@@ -1,3 +1,7 @@
 node_modules/
 package-lock.json
 package.json
+
+# Archivos internos de Claude Code
+CLAUDE.md
+MEMORIA_HABLAYA.md
