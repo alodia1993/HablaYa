@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './components/AdminRoute';
@@ -12,6 +12,7 @@ import LeccionDetalle from './pages/LeccionDetalle';
 import Writing from './pages/Writing';
 import Progreso from './pages/Progreso';
 import Tutorias from './pages/Tutorias';
+import Home from './pages/Home';
 
 function App() {
     return (
@@ -19,7 +20,7 @@ function App() {
             <BrowserRouter>
                 <Navbar />
                 <Routes>
-                    <Route path="/" element={<Navigate to="/login" />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/dashboard" element={
