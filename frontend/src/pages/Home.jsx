@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -91,14 +92,14 @@ const Home = () => {
         <div style={styles.page}>
 
             {/* NAVBAR */}
-            <nav style={styles.navbar}>
-                <div style={styles.navLogo}>🗣️ HablaYa!</div>
-                <div style={styles.navLinks}>
-                    <a href="#cursos" style={styles.navLink}>Cursos</a>
-                    <a href="#reseñas" style={styles.navLink}>Reseñas</a>
-                    <a href="#contacto" style={styles.navLink}>Contacto</a>
-                    <button onClick={() => navigate('/login')} style={styles.navBotonLogin}>Iniciar sesión</button>
-                    <button onClick={() => navigate('/register')} style={styles.navBotonRegistro}>Registrarse</button>
+            <nav className="home-navbar">
+                <div className="home-nav-logo">🗣️ HablaYa!</div>
+                <div className="home-nav-links">
+                    <a href="#cursos" className="home-nav-link">Cursos</a>
+                    <a href="#reseñas" className="home-nav-link">Reseñas</a>
+                    <a href="#contacto" className="home-nav-link">Contacto</a>
+                    <button onClick={() => navigate('/login')} className="home-nav-btn-login">Iniciar sesión</button>
+                    <button onClick={() => navigate('/register')} className="home-nav-btn-register">Registrarse</button>
                 </div>
             </nav>
 
@@ -148,7 +149,7 @@ const Home = () => {
                             <p style={styles.cursoDescEn}>{curso.descIngles}</p>
                             <span style={styles.nivelBadge}>{curso.niveles}</span>
                             <button
-                                onClick={() => window.open('https://preply.in/ALOD%C3%8DA6ES301407710?ts=17746130', '_blank')}
+                                onClick={() => !curso.proximamente && navigate('/tutorias')}
                                 style={curso.proximamente ? styles.botonProximamente : styles.botonReservar}
                                 disabled={curso.proximamente}
                             >
@@ -188,15 +189,15 @@ const Home = () => {
             {/* RESERVAR EN PREPLY */}
             <section style={styles.preplySection}>
                 <div style={styles.preplyContent}>
-                    <h2 style={styles.preplyTitulo}>¿Prefieres reservar en Preply?</h2>
-                    <p style={styles.preplySubtitulo}>Also available on Preply · También disponible en Preply</p>
-                    <p style={styles.preplyDesc}>Reserva una clase de prueba directamente desde Preply y conoce mi metodología.</p>
-                    <p style={styles.preplyDescEn}>Book a trial lesson directly from Preply and discover my teaching method.</p>
+                    <p style={styles.preplyTag}>🔗 También disponible en Preply · Also available on Preply</p>
+                    <h2 style={styles.preplyTitulo}>¿Quieres empezar con una clase de prueba en Preply?</h2>
+                    <p style={styles.preplyDesc}>Reserva tu primera clase directamente en Preply y llévate un descuento exclusivo. Sin compromiso.</p>
+                    <p style={styles.preplyDescEn}>Book your first lesson directly on Preply and get an exclusive discount. No commitment.</p>
                     <button
-                        onClick={() => window.open('https://preply.in/ALOD%C3%8DA6ES301407710?ts=17746130', '_blank')}
+                        onClick={() => window.open('https://preply.com/es/?pref=MjE5NzQxOQ==&id=1775724748.753501&ep=w1', '_blank')}
                         style={styles.botonPreply}
                     >
-                        Reservar en Preply · Book on Preply
+                        ¡Pulsa aquí y obtén tu descuento! · Click here for your discount!
                     </button>
                 </div>
             </section>
@@ -228,12 +229,6 @@ const Home = () => {
 
 const styles = {
     page: { fontFamily: 'sans-serif', color: '#1f2937', margin: 0, padding: 0 },
-    navbar: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem', background: '#4f46e5', position: 'sticky', top: 0, zIndex: 100 },
-    navLogo: { color: 'white', fontWeight: '800', fontSize: '1.3rem' },
-    navLinks: { display: 'flex', alignItems: 'center', gap: '1.5rem' },
-    navLink: { color: 'white', textDecoration: 'none', fontWeight: '500' },
-    navBotonLogin: { padding: '0.5rem 1rem', background: 'transparent', color: 'white', border: '2px solid white', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
-    navBotonRegistro: { padding: '0.5rem 1rem', background: 'white', color: '#4f46e5', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
     hero: { background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)', padding: '5rem 2rem', textAlign: 'center', color: 'white' },
     heroContent: { maxWidth: '700px', margin: '0 auto' },
     heroTag: { background: 'rgba(255,255,255,0.2)', display: 'inline-block', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.9rem', marginBottom: '1.5rem' },
@@ -267,9 +262,10 @@ const styles = {
     reseñaTextoEn: { color: '#6b7280', fontStyle: 'italic', fontSize: '0.85rem', margin: '0 0 1rem' },
     reseñaNombre: { color: '#4f46e5', fontWeight: '600', margin: 0 },
     botonPreply: { padding: '0.85rem 2rem', background: '#4f46e5', color: 'white', border: 'none', borderRadius: '10px', cursor: 'pointer', fontWeight: '600', fontSize: '1rem' },
-    preplySection: { background: '#4f46e5', padding: '4rem 2rem', textAlign: 'center', color: 'white' },
+    preplySection: { background: '#1e1b4b', padding: '4rem 2rem', textAlign: 'center', color: 'white' },
     preplyContent: { maxWidth: '600px', margin: '0 auto' },
-    preplyTitulo: { fontSize: '1.8rem', fontWeight: '700', marginBottom: '0.5rem' },
+    preplyTag: { background: 'rgba(255,255,255,0.15)', display: 'inline-block', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.9rem', marginBottom: '1rem' },
+    preplyTitulo: { fontSize: '1.8rem', fontWeight: '700', marginBottom: '1rem' },
     preplySubtitulo: { opacity: 0.8, fontStyle: 'italic', marginBottom: '1rem' },
     preplyDesc: { marginBottom: '0.25rem' },
     preplyDescEn: { opacity: 0.8, fontStyle: 'italic', marginBottom: '2rem', fontSize: '0.9rem' },
