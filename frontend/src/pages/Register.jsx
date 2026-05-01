@@ -31,9 +31,13 @@ const Register = () => {
         setError('');
         try {
             await api.post('/auth/register', {
-                nombre: `${form.nombre} ${form.apellido}`.trim(),
+                nombre: form.nombre,
+                apellido: form.apellido,
                 email: form.email,
                 password: form.password,
+                pais: form.pais,
+                ciudad: form.ciudad,
+                codigoPostal: form.codigoPostal,
                 rol: 'alumno'
             });
             navigate('/login');

@@ -1,9 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
     const { usuario, logout } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogout = () => {
         logout();
@@ -11,12 +12,13 @@ const Navbar = () => {
     };
 
     if (!usuario) return null;
+    if (location.pathname === '/') return null;
 
     return (
         <nav style={styles.nav}>
-            <div style={styles.logo}>
+            <Link to="/" style={styles.logo}>
                 🗣️ HablaYa!
-            </div>
+            </Link>
             <div style={styles.links}>
                 {usuario.rol === 'alumno' && (
                     <>
@@ -44,7 +46,7 @@ const Navbar = () => {
 
 const styles = {
     nav: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 2rem', background: '#4f46e5', color: 'white' },
-    logo: { fontSize: '1.25rem', fontWeight: 'bold', color: 'white' },
+    logo: { fontSize: '1.25rem', fontWeight: 'bold', color: 'white', textDecoration: 'none' },
     links: { display: 'flex', alignItems: 'center', gap: '1.5rem' },
     link: { color: 'white', textDecoration: 'none', fontWeight: '500' },
     nombre: { color: '#c7d2fe', fontSize: '0.9rem' },

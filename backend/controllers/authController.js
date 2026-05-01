@@ -5,7 +5,7 @@ const { findUserByEmail, createUser } = require('../models/userModel');
 // REGISTRO
 const register = async (req, res) => {
     try {
-        const { nombre, email, password, rol } = req.body;
+        const { nombre, email, password, rol, apellido, pais, ciudad, codigoPostal } = req.body;
 
         // Comprobar si el usuario ya existe
         const usuarioExistente = await findUserByEmail(email);
@@ -17,7 +17,7 @@ const register = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, 10);
 
         // Crear el usuario
-        const nuevoUsuario = await createUser(nombre, email, passwordHash, rol);
+        const nuevoUsuario = await createUser(nombre, email, passwordHash, rol, apellido, pais, ciudad, codigoPostal);
 
         res.status(201).json({
             mensaje: 'Usuario registrado correctamente',

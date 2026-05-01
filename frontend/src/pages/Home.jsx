@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
+    const { usuario } = useAuth();
 
     const cursos = [
         {
@@ -98,8 +100,16 @@ const Home = () => {
                     <a href="#cursos" className="home-nav-link">Cursos</a>
                     <a href="#reseñas" className="home-nav-link">Reseñas</a>
                     <a href="#contacto" className="home-nav-link">Contacto</a>
-                    <button onClick={() => navigate('/login')} className="home-nav-btn-login">Iniciar sesión</button>
-                    <button onClick={() => navigate('/register')} className="home-nav-btn-register">Registrarse</button>
+                    {usuario ? (
+                        <button onClick={() => navigate(usuario.rol === 'admin' ? '/admin' : '/dashboard')} className="home-nav-btn-register">
+                            Mi panel →
+                        </button>
+                    ) : (
+                        <>
+                            <button onClick={() => navigate('/login')} className="home-nav-btn-login">Iniciar sesión</button>
+                            <button onClick={() => navigate('/register')} className="home-nav-btn-register">Registrarse</button>
+                        </>
+                    )}
                 </div>
             </nav>
 
