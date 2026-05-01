@@ -7,7 +7,14 @@ require('./config/db');
 const app = express();
 
 // Middlewares globales
-app.use(cors());
+app.use(cors({
+    origin: [
+        'http://localhost:5173',
+        'https://hablaya.vercel.app',
+        /\.vercel\.app$/
+    ],
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
